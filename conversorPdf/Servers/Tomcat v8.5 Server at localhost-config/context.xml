@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+--><!-- The contents of this file will be loaded for each web application --><!-- <Context> --><!-- Default set of monitored resources. If one of these changes, the    --><!-- web application will be reloaded.                                   --><!-- <WatchedResource>WEB-INF/web.xml</WatchedResource> --><!-- <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource> --><!-- Uncomment this to disable session persistence across Tomcat restarts --><!--
+    <Manager pathname="" />
+    --><!-- </Context> --><Context crossContext="true" debug="5" displayName="eProcurement" docBase="C:\digihub\fvweb\eprocurement" path="/eprocurement" reloadable="true">
+<!-- Contexto para trabalhar com o eProcurement 
+		  <Resource auth="Container"
+			    driverClassName="oracle.jdbc.driver.OracleDriver"
+			    maxActive="100"
+			    maxIdle="20"
+			    maxWait="10000"
+			    removeAbandoned="true"
+			    removeAbandonedTimeout="30"
+			    timeBetweenEvictionRunsMillis="10000"
+			    minEvicatableIdleTimeMillis="60000"
+			    testOnBorrow="true"
+			    name="jdbc/eprocurement"
+			    password="logix"
+			    type="javax.sql.DataSource"
+			    url="jdbc:oracle:thin:@10.211.0.96:1521:usl"
+			    username="logix"
+				validationQuery="select 1 from dual"
+				testWhileIdle="true"
+				testOnReturn="true"
+		   /> 
+-->
+		   
+<!-- Contexto para trabalhar com a terex prod - teste
+		   			-->
+		   <Resource auth="Container" defaultAutoCommit="true" driverClassName="com.informix.jdbc.IfxDriver" initialSize="5" logAbandoned="false" maxIdle="15" maxTotal="100" maxWaitMillis="10000" minEvictableIdleTimeMillis="30000" minIdle="5" name="jdbc/db-web" password="sorestaessa" removeAbandonedOnBorrow="true" removeAbandonedOnMaintenance="true" removeAbandonedTimeout="30" softMinEvictableIdleTimeMillis="30000" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="60000" type="javax.sql.DataSource" url="jdbc:informix-sqli://10.11.30.10:1560/fvweb:INFORMIXSERVER=teste" username="informix" validationQuery="select 1 from systables"/>
+
+			<Resource auth="Container" defaultAutoCommit="true" driverClassName="com.informix.jdbc.IfxDriver" initialSize="5" logAbandoned="false" maxIdle="15" maxTotal="100" maxWaitMillis="10000" minEvictableIdleTimeMillis="30000" minIdle="5" name="jdbc/db-erp" password="sorestaessa" removeAbandonedOnBorrow="true" removeAbandonedOnMaintenance="true" removeAbandonedTimeout="30" softMinEvictableIdleTimeMillis="30000" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="60000" type="javax.sql.DataSource" url="jdbc:informix-sqli://10.11.30.10:1560/logix:INFORMIXSERVER=teste" username="informix" validationQuery="select 1 from systables"/>
+
+		   <WatchedResource>WEB-INF/web.xml</WatchedResource>
+		   <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+	   	</Context>
